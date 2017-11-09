@@ -13,6 +13,7 @@
         <module>spring-boot-demo-parent</module>
         <module>spring-boot-quick-start</module>
         <module>spring-boot-property</module>
+        <module>spring-boot-restful</module>
     </modules>
 
 </project>
