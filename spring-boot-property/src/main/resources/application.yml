@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+value:
+  name: Lucus
+  age: 12
+  address: 上海
+  description: ${value.name}已经${value.age}岁，住在${value.address}
+
+randomProperties:
+  label: ${random.value}
+  number: ${random.int}
+  bigNumber: ${random.long}
+  number1: ${random.int(30)}
+  number2: ${random.int[40,100]}
+
+spring:
+  profiles:
+    active: test
