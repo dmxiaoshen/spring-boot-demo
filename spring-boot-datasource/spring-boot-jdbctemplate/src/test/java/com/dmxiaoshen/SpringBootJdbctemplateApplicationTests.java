@@ -21,6 +21,11 @@ public class SpringBootJdbctemplateApplicationTests {
 	@Autowired
 	private StudentService studentService;
 
+	/**
+	 * @Rollback标签是需要配合@Transcational标签共同使用的，
+	 * 你可以理解为在Junit下对于加了Transactional标签的方法，会默认视为@Rollback(true)，
+	 * 如果让这个方法不回滚，那么就要手动设置@Rollback(false)。
+	 */
 	@Test
 	@Transactional
 	public void testAddStudent(){

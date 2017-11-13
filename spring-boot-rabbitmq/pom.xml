@@ -4,18 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>com.dmxiaoshen</groupId>
+        <artifactId>spring-boot-demo-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.dmxiaoshen</groupId>
-    <artifactId>spring-boot-demo</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>spring-boot-rabbitmq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
-        <module>spring-boot-demo-parent</module>
-        <module>spring-boot-quick-start</module>
-        <module>spring-boot-property</module>
-        <module>spring-boot-restful</module>
-        <module>spring-boot-datasource</module>
-        <module>spring-boot-rabbitmq</module>
+        <module>spring-boot-rabbitmq-simple</module>
     </modules>
-
 </project>
