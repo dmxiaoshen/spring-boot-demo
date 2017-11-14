@@ -1,0 +1,9 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: spring-boot-aop
+  aop:
+    # CGLIB来实现AOP, 配置为true，false则为默认标准java实现
+    proxy-target-class: true
+
