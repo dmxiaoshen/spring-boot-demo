@@ -18,5 +18,6 @@
 
     <modules>
         <module>spring-boot-rabbitmq-simple</module>
+        <module>spring-boot-rabbitmq-multi</module>
     </modules>
 </project>

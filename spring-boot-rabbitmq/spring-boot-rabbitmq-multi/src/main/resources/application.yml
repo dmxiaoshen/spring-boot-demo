@@ -6,3 +6,12 @@ spring:
     port: 6672
     username: dmxiaoshen
     password: dmxiaoshen
+
+
+spring-ext:
+  rabbitmq:
+    second:
+      host: daddress.mq.com
+      port: 5672
+      username: fydtest
+      password: fydtest
