@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/spring_boot_demo?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://dmxiaoshen.mysql.com:5506/spring_boot_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: root
+    password: dmxiaoshen
 
