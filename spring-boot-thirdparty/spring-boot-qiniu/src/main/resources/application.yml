@@ -1,0 +1,13 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: spring-boot-qiniu
+
+qiniu:
+  bucket: spring-boot-qiniu
+  accessKey: Vz1KsHQ5URHNc-U1xlInst0U6uMNSuItjjqxFwzE
+  secretKey: FkNAbLe-863QnUMENVLaKnUosAk8jGR1G8JBfClV
+  prefixUrl: http://ozjzcix0t.bkt.clouddn.com
+  tokenExpiry: 3600
+  policy: '{"mimeLimit":"image/jpeg;image/png;application/pdf"}'

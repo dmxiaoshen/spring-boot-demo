@@ -17,6 +17,7 @@
         <module>spring-boot-datasource</module>
         <module>spring-boot-rabbitmq</module>
         <module>spring-boot-aop</module>
+        <module>spring-boot-thirdparty</module>
     </modules>
 
 </project>
