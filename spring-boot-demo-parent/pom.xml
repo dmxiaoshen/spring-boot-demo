@@ -61,6 +61,14 @@
         </dependencies>
     </dependencyManagement>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.dmxiaoshen</groupId>
+            <artifactId>spring-boot-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <!--<build>-->
         <!--<plugins>-->
             <!--<plugin>-->

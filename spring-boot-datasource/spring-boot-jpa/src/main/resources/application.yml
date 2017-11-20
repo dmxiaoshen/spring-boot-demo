@@ -1,0 +1,17 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: spring-boot-jpa
+  datasource:
+    url: jdbc:mysql://dmxiaoshen.mysql.com:5506/spring_boot_demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: dmxiaoshen
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+        hbm2ddl:
+          auto: create # create-drop update validate

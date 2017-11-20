@@ -10,6 +10,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
+        <module>spring-boot-common</module>
         <module>spring-boot-demo-parent</module>
         <module>spring-boot-quick-start</module>
         <module>spring-boot-property</module>
