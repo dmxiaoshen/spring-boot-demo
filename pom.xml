@@ -19,6 +19,7 @@
         <module>spring-boot-rabbitmq</module>
         <module>spring-boot-aop</module>
         <module>spring-boot-thirdparty</module>
+        <module>spring-boot-mail</module>
     </modules>
 
 </project>
