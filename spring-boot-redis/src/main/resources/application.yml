@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: dmxiaoshen.redis.com
+    port: 9999
+    database: 0
+    timeout: 5000
+    password: dmxiaoshen
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
