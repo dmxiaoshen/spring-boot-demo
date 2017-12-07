@@ -20,9 +20,10 @@ public class SpringBootRabbitmqMultiApplicationTests {
 
 	@Test
 	public void testMultiHelloSender(){
-		for(int i=0;i<100;i++){
-			multiHelloSender.sender("{\"title\":\"multi.hello\"}");
-		}
+//		for(int i=0;i<100;i++){
+//			multiHelloSender.sender("{\"title\":\"multi.hello\"}");
+//		}
+		multiHelloSender.sender("{\"title\":\"multi.hello\"}");
 	}
 
 	@Test
