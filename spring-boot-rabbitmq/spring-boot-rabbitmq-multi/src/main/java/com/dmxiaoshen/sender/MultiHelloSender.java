@@ -32,7 +32,7 @@ public class MultiHelloSender {
                         int count = threadLocal.get();
                         if (count <= 3) {
                             threadLocal.set(count++);
-                            defaultRabbitTemplate.convertAndSend("multi.hello",json);
+                            defaultRabbitTemplate.convertAndSend("hello-exchange","hello-routekey",json);
                         } else {
                             logger.error("multi.hello 发送3次失败");
                         }
@@ -42,6 +42,6 @@ public class MultiHelloSender {
                 }
             });
         }
-        defaultRabbitTemplate.convertAndSend("multi.hello",json);
+        defaultRabbitTemplate.convertAndSend("hello-exchange","hello-routekey",json);
     }
 }

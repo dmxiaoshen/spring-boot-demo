@@ -1,5 +1,6 @@
 package com.dmxiaoshen.config;
 
+import com.rabbitmq.client.Channel;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -115,7 +116,12 @@ public class RabbitMultiConfig {
     public String helloQueue(@Qualifier("defaultConnectionFactory")ConnectionFactory connectionFactory){
         try {
             // 第二个参数 ture 为durable 永不丢失
-            connectionFactory.createConnection().createChannel(false).queueDeclare("multi.hello", true, false, false, null);
+            //connectionFactory.createConnection().createChannel(false).queueDeclare("multi.hello", true, false, false, null);
+            //connectionFactory.createConnection().createChannel(false).exchangeDeclare("","");
+            Channel channel = connectionFactory.createConnection().createChannel(false);
+            channel.exchangeDeclare("hello-exchange","direct",true);
+            channel.queueDeclare("multi.hello", true, false, false, null);
+            channel.queueBind("multi.hello","hello-exchange","hello-routekey");
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
