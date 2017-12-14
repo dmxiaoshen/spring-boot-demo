@@ -16,4 +16,4 @@ randomProperties:
 
 spring:
   profiles:
-    active: test
+    active: prd

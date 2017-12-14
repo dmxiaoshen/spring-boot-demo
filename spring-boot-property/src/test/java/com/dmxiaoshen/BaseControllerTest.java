@@ -1,5 +1,7 @@
 package com.dmxiaoshen;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
@@ -15,6 +17,8 @@ import java.util.Map;
  * Created by hzhsg on 2017/11/9.
  */
 public class BaseControllerTest {
+
+    protected final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     protected TestRestTemplate testRestTemplate;

@@ -1,6 +1,8 @@
 package com.dmxiaoshen;
 
+import com.dmxiaoshen.constants.CommonConstants;
 import com.dmxiaoshen.service.HelloService;
+import com.dmxiaoshen.util.SpringPropertiesUtil;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,6 +29,13 @@ public class SpringBootPropertyApplicationTests extends BaseControllerTest {
         HelloService.call("2","xiaoyan",null);
         HelloService.call("3","luyi","");
         HelloService.call("3","qiniu","kaka");
+    }
+
+    @Test
+    public void testSpringPropertiesUtil(){
+        //logger.info(SpringPropertiesUtil.getPropertiesValue("${staticProperties.APP_ID}"));
+        logger.info(CommonConstants.APP_ID);
+        logger.info(CommonConstants.APP_NAME);
     }
 
 }
