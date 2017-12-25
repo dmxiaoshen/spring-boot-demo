@@ -5,6 +5,8 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 /**
  * Created by hzhsg on 2017/11/20.
  */
@@ -22,5 +24,11 @@ public class SimpleMailSender {
         message.setSubject("简单邮件");
         message.setText("这是一封简单测试邮件");
         javaMailSender.send(message);
+    }
+
+    public static void main(String[] args) {
+        Date d = new Date();
+        System.out.println("hello");
+
     }
 }

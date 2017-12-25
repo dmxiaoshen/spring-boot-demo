@@ -1,6 +1,7 @@
 package com.dmxiaoshen;
 
 import com.dmxiaoshen.common.JsonUtil;
+import com.dmxiaoshen.entity.Book;
 import com.dmxiaoshen.redis.StringRedisTemplateDemo;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Assert;
@@ -10,9 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -78,6 +78,68 @@ public class SpringBootRedisApplicationTests {
         }
 
         System.out.println(JsonUtil.toJson(k));
+    }
+
+    @Test
+    public void testJsonUtil(){
+        LinkedList<Book> bookList = new LinkedList<>();
+        bookList.add(new Book("java",new BigDecimal("44")));
+        bookList.add(new Book("c++",new BigDecimal("41")));
+        bookList.add(new Book("python",new BigDecimal("74")));
+
+        stringRedisTemplateDemo.setValue("book-list", JsonUtil.toJson(bookList),-1);
+
+        String result = stringRedisTemplateDemo.getValue("book-list");
+
+        LinkedList<Book> k = JsonUtil.toLinkedList(result,Book.class);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testJsonUtilList(){
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("java",new BigDecimal("44")));
+        bookList.add(new Book("c++",new BigDecimal("41")));
+        bookList.add(new Book("python",new BigDecimal("74")));
+
+        stringRedisTemplateDemo.setValue("book-list-2", JsonUtil.toJson(bookList),-1);
+
+        String result = stringRedisTemplateDemo.getValue("book-list-2");
+
+        List<Book> k = JsonUtil.toList(result,Book.class);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testJsonUtilMap(){
+       Map<Integer,Book> map = new HashMap<>();
+        map.put(1,new Book("java",new BigDecimal("44")));
+        map.put(2,new Book("c++",new BigDecimal("41")));
+        map.put(4,new Book("python",new BigDecimal("74")));
+
+        stringRedisTemplateDemo.setValue("book-map", JsonUtil.toJson(map),-1);
+
+        String result = stringRedisTemplateDemo.getValue("book-map");
+
+        Map<Integer,Book> k = JsonUtil.toMap(result,Integer.class,Book.class);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testBookLinkedList(){
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("java",new BigDecimal("44")));
+        bookList.add(new Book("c++",new BigDecimal("41")));
+        bookList.add(new Book("python",new BigDecimal("74")));
+        LinkedList<Book> list = new LinkedList<>(bookList);
+
+        Book temp = null;
+        for(int i = 0;i<list.size();i++){
+            temp = list.pollFirst();
+
+            list.addLast(temp);
+            System.out.println("poll-"+i);
+        }
     }
 
 }
