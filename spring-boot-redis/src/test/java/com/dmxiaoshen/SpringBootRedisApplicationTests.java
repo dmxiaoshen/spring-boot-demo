@@ -2,6 +2,7 @@ package com.dmxiaoshen;
 
 import com.dmxiaoshen.common.JsonUtil;
 import com.dmxiaoshen.entity.Book;
+import com.dmxiaoshen.entity.BookCase;
 import com.dmxiaoshen.redis.StringRedisTemplateDemo;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Assert;
@@ -140,6 +141,27 @@ public class SpringBootRedisApplicationTests {
             list.addLast(temp);
             System.out.println("poll-"+i);
         }
+    }
+
+    @Test
+    public void testBookCase(){
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("java",new BigDecimal("44")));
+        bookList.add(new Book("c++",new BigDecimal("41")));
+        bookList.add(new Book("python",new BigDecimal("74")));
+        BookCase bookCase = new BookCase();
+        bookCase.setList(bookList);
+        stringRedisTemplateDemo.setValue("book-case", JsonUtil.toJson(bookCase),-1);
+
+    }
+
+    @Test
+    public void bookCase(){
+        String json = stringRedisTemplateDemo.getValue("book-case");
+
+        BookCase bookCase = JsonUtil.toJavaBean(json,BookCase.class);
+        System.out.println("----");
+
     }
 
 }
